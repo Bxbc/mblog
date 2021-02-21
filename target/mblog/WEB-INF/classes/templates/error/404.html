@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <head th:replace="_frags :: head(~{::title})">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>404</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+        <link rel="stylesheet" href="../../static/css/style.css">
+    </head>
+</head>
+<body>
+<nav th:replace="_frags :: menu(0)" class="ui inverted attached segment interval-tb-reduce">
+    <div class="ui container">
+        <div class="ui inverted stackable menu">
+            <h2 class="ui teal header item">My Blog</h2>
+            <a href="#" class="m-item item my-mobile-hide"><i class="home icon"></i>首页</a>
+            <a href="#" class="m-item item my-mobile-hide"><i class="idea icon"></i>分类</a>
+            <a href="#" class="m-item item my-mobile-hide"><i class="tags icon"></i>标签</a>
+            <!--                search box part-->
+            <div class="m-item item my-mobile-hide" style="width: 50%;height: 0"></div>
+            <div class="m-item right item my-mobile-hide">
+                <div class="ui icon input search-bar">
+                    <input type="search" placeholder="Search..." >
+                    <i class="search link icon"></i>
+                </div>
+            </div>
+            <div class="ui container right item my-mobile-hide">
+                <img src="../static/images/profile.PNG" alt="My Profile" class="round_icon" th:src="@{/images/profile.PNG}">
+                <a href="#" class="item"><i class="address card outline icon"></i>Me</a>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="ui menu toggle black icon button my-ps-topright my-mobile-show">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+<div class="interval-tb-add my-center">
+    <div class="ui error message interval-tb-add">
+        <div class="ui container">
+            <h2 class="my-text-red">404</h2>
+            <p>对不起，您访问的资源不存在</p>
+        </div>
+    </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<!--show 404 message-->
+<footer th:replace="_frags :: foot" class="ui inverted vertical segment interval-tb-add">
+    <div class="ui center aligned container">
+        <div class="ui inverted divided stackable grid">
+            <div class="three wide column">
+                <img src="../static/images/profile.PNG" alt="My Profile" class="round_icon" style="width: 100px;height: 100px" th:src="@{/images/profile.PNG}">
+            </div>
+            <div class="three wide column">
+                <h4 class="ui inverted header">最新博客</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">1</a>
+                    <a href="#" class="item">2</a>
+                    <a href="#" class="item">3</a>
+                </div>
+            </div>
+            <div class="three wide column">
+                <div class="ui inverted link list">
+                    <h4 class="ui inverted header">代办事项</h4>
+                    <a href="#" class="item">1</a>
+                    <a href="#" class="item">2</a>
+                    <a href="#" class="item">3</a>
+                </div>
+            </div>
+            <div class="seven wide column"></div>
+        </div>
+        <div class="ui inverted section divider"></div>
+        <p class="my-text-interval-small my-alpha">Copyright©2021 Blog of XI BI</p>
+    </div>
+
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+package me.bxbc.web;
+
+import me.bxbc.service.BlogService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+/**
+ * Author: BI XI
+ * Date 2021/2/19
+ */
+
+@Controller
+public class ArchiveShowControl {
+
+    @Autowired
+    private BlogService blogService;
+
+    @GetMapping("/archiveshow")
+    public String archiveShow(Model model) {
+        model.addAttribute("archiveMap", blogService.archiveBlog());
+        model.addAttribute("countBlog", blogService.countBlog());
+        return "archive";
+    }
+}

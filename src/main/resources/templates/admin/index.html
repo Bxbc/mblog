@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="admin/_frags :: head(~{::title})">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>博客管理</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <link rel="stylesheet" href="../../static/css/style.css">
+</head>
+<body>
+<!--    navigation part-->
+<nav th:replace="admin/_frags :: menu(0)" class="ui inverted attached segment interval-tb-reduce">
+    <div class="ui container">
+        <div class="ui inverted stackable menu">
+            <h2 class="ui teal header item">博客管理</h2>
+            <a href="#" class="m-item item my-mobile-hide"><i class="home icon"></i>首页</a>
+            <a href="#" class="m-item item my-mobile-hide"><i class="idea icon"></i>分类</a>
+            <a href="#" class="m-item item my-mobile-hide"><i class="tags icon"></i>标签</a>
+            <!--account part -->
+            <div class="m-item my-mobile-hide right menu">
+                <div class="ui dropdown item">
+                    <div class="text">
+                        <img src="../../static/images/profile.PNG" alt="" class="ui avatar image">
+                    </div>
+                    <div class="menu">
+                        <a href="#" class="item">注销</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="ui menu toggle black icon button my-ps-topright my-mobile-show">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
+
+<!--the second navigation menu-->
+<div class="ui attached pointing menu">
+    <div class="ui container">
+        <div class="right menu">
+            <a href="#" th:href="@{/admin/blogs/add}" class="item">发布</a>
+            <a href="#" th:href="@{/admin/blogs}" class="active green item">检查</a>
+        </div>
+    </div>
+</div>
+
+<!--<div class="ui transparent bottom attached segment"></div>-->
+<!--content-->
+<div class="interval-tb-add">
+    <div class="ui container">
+        <div class="ui success message">
+            <h1 class="my-text-green">Hello</h1>
+            <p>欢迎登陆博客管理后端</p>
+        </div>
+        <img src="../../static/images/bk3.jpg" th:src="@{/images/bk3.jpg}" alt="" class="ui rounded bordered image fluid" style="width: 1200px;height: 500px">
+    </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<!--bottom elements-->
+<footer th:replace="admin/_frags :: foot" class="ui inverted vertical segment interval-tb-add">
+    <div class="ui center aligned container">
+        <div class="ui inverted divided stackable grid">
+            <div class="three wide column">
+                <img src="https://imgchr.com/i/yanhdg" alt="My Profile" class="ui avatar image center aligned middle aligned" style="width: 100px;height: 100px">
+            </div>
+            <div class="three wide column">
+                <h4 class="ui inverted header">最新博客</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">1</a>
+                    <a href="#" class="item">2</a>
+                    <a href="#" class="item">3</a>
+                </div>
+            </div>
+            <div class="three wide column">
+                <div class="ui inverted link list">
+                    <h4 class="ui inverted header">代办事项</h4>
+                    <a href="#" class="item">1</a>
+                    <a href="#" class="item">2</a>
+                    <a href="#" class="item">3</a>
+                </div>
+            </div>
+            <div class="seven wide column"></div>
+        </div>
+        <div class="ui inverted section divider"></div>
+        <p class="my-text-interval-small my-alpha">Copyright©2021 Blog of XI BI</p>
+    </div>
+
+</footer>
+<!--/*/<th:block th:replace="admin/_frags :: scripts">/*/-->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+<!--/*/</th:block>/*/-->
+
+</body>
+</html>

@@ -1,0 +1,192 @@
+/*background*/
+.my-body {
+    background-image: url("../images/bk3.jpg") !important;
+    background-size: cover !important;
+    background-repeat: no-repeat;
+    margin: 0 !important;
+    padding: 0 !important;
+    background-position: center center !important;
+    z-index: -1;
+}
+
+/*字体颜色*/
+.my-black {
+    color: #0C1021 !important;
+}
+
+/*阴影*/
+.my-shadow {
+    -webkit-box-shadow: 0 4px 8px rgba(0,0,0,0.2) !important;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2) !important;
+}
+
+.my-bottom {
+    position: absolute !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+}
+
+.my-bottom-left {
+    position: absolute !important;
+    left: 0 !important;
+    bottom: 0 !important;
+}
+
+.my-bottom-right {
+    position: absolute !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    z-index: -1;
+}
+
+.my-middle {
+    position: absolute !important;
+    top: 20% !important;
+    left: 5% !important;
+    right: 5% !important;
+    bottom: 20% !important;
+}
+
+.interval-tb-reduce {
+    padding-top: 0.2em !important;
+    padding-bottom: 0.2em !important;
+}
+.interval-tb-middle {
+    padding-top: 3em !important;
+    padding-bottom: 3em !important;
+}
+.interval-tb-add {
+    padding-top: 4em !important;
+    padding-bottom: 4em !important;
+}
+
+.interval-lr-add {
+    padding-left: 25% !important;
+    padding-right: 25% !important;
+}
+
+.widget-align {
+    margin-right: 0.2em !important;
+        }
+
+/*外部上下间距*/
+.my-margin-tb-tiny {
+    margin-top: 0.3em !important;
+    margin-bottom: 0.3em !important;
+}
+
+.my-margin-tb-middle {
+    margin-top: 2em !important;
+    margin-bottom: 2em !important;
+}
+
+.search-bar {
+    width:200px;
+    height:30px;
+}
+
+/*the picture mode*/
+.round_icon{
+    width: 34px;
+    height: 34px;
+    display: flex;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/*the text mode*/
+.my-text-thin {
+    font-weight: 300; !important;
+}
+
+.my-blue {
+    color: #1d75b3 !important;
+}
+
+.my-text-red {
+    color: #9c3328 !important;
+    font-weight: bolder !important;
+}
+
+.my-text-green {
+    color: #01a252 !important;
+    font-weight: bolder !important;
+}
+
+.my-text-interval-small {
+    letter-spacing: 1px; !important;
+}
+
+.my-text-interval-large {
+    letter-spacing: 2px; !important;
+}
+
+.my-text-lrpad {
+    padding-left: 3em !important;
+    padding-right: 3em !important;
+}
+
+/*display*/
+.my-ps-topright {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+/* center aligner */
+.my-center {
+    position: absolute !important;
+
+    left: 10% !important;
+    right: 10% !important;
+
+}
+
+.my-mobile-show {
+    display: none !important;
+}
+
+.my-ps-btrt {
+    position: fixed !important;
+    bottom: 5% !important;
+    right: 2% !important;
+    z-index: 1 !important;
+}
+
+/*when use phone to view */
+@media screen and (max-width: 768px) {
+    .my-mobile-hide {
+        display: none !important;
+    }
+    .my-mobile-show {
+        display: block !important;
+    }
+    .my-mobile-wide {
+        width: 100% !important;
+    }
+}
+
+/*change the transparent*/
+.my-alpha {
+    opacity: 0.7 !important;
+}
+
+.my-container-middle {
+    max-width: 60em !important;
+    margin: auto !important;
+}
+
+.my-mini {
+    width: 70px !important;
+    height: 30px !important;
+}
+
+/*背景设置*/
+.my-background {
+    background-image: url("../static/images/bk2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}

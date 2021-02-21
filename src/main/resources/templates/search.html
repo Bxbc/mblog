@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<!--use the head in frag to replace current head part in this html-->
+<head th:replace="_frags :: head(~{::title})">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>搜索结果</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+
+<body>
+<!--    navigation part-->
+<nav th:replace="_frags :: menu(0)" class="ui inverted attached segment interval-tb-reduce">
+    <div class="ui container">
+        <div class="ui inverted stackable menu">
+            <h2 class="ui teal header item">My Blog</h2>
+            <a href="#" class="m-item item my-mobile-hide"><i class="home icon"></i>首页</a>
+            <a href="#" class="m-item item my-mobile-hide"><i class="idea icon"></i>分类</a>
+            <a href="#" class="m-item item my-mobile-hide"><i class="tags icon"></i>标签</a>
+            <!--                search box part-->
+            <div class="m-item item my-mobile-hide" style="width: 50%;height: 0"></div>
+            <div class="m-item right item my-mobile-hide">
+                <div class="ui icon input search-bar">
+                    <input type="search" placeholder="Search..." >
+                    <i class="search link icon"></i>
+                </div>
+            </div>
+            <div class="ui container right item my-mobile-hide">
+                <img src="../static/images/profile.PNG" alt="My Profile" class="round_icon" th:src="@{/images/profile.PNG}">
+                <a href="#" class="item"><i class="address card outline icon"></i>Me</a>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="ui menu toggle black icon button my-ps-topright my-mobile-show">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
+
+
+<!--<div class="ui transparent bottom attached segment"></div>-->
+<!--content-->
+<div class="interval-tb-middle">
+    <div class="ui container">
+        <div class="ui top attached middle aligned segment">
+            <!--                    two column blog menu-->
+            <div class="ui middle aligned two column grid">
+                <div class="column">
+                    <h3 class="ui blue header">搜索结果</h3>
+                </div>
+                <div class="right aligned column">
+                    共 <h2 class="ui red header my-text-interval-small" style="display: inline-block" th:text="${page.totalElements}">14</h2> 篇
+                </div>
+                <!--                        two column menu ended-->
+            </div>
+        </div>
+
+        <div class="ui top attached teal segment" th:each="blog:${page.content}">
+            <div class="ui padded vertical segment">
+                <div class="ui middle aligned mobile reversed stackable grid">
+                    <!--                            words part-->
+                    <div class="eleven wide middle aligned column">
+                        <h3 class="ui header"><a href="#" th:href="@{/blog/{id}(id=${blog.id})}" class="my-black" th:text="${blog.title}">The title</a></h3>
+                        <p th:text="|${blog.description}......|">Content</p>
+                        <!--                        the foot part of the post article-->
+                        <div class="ui grid">
+                            <!--                                    the info part-->
+                            <div class="eleven wide column">
+                                <div class="ui horizontal link list">
+                                    <div class="item">
+                                        <img src="../static/images/profile.PNG" th:src="@{${blog.user.avatar}}" alt="" class="ui avatar image">
+                                        <!--                                                the writer info-->
+                                        <div class="content">
+                                            <a href="#">
+                                                <div class="writer" th:text="${blog.user.nickname}">BC</div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="item center aligned">
+                                        <i class="calendar icon"></i><span th:text="${#dates.format(blog.updateTime, 'yyyy-MM-dd')}"> 2021-1-31</span>
+                                    </div>
+                                    <div class="item center aligned">
+                                        <i class="eye icon"></i><span th:text="${blog.viewCount}">123</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--                                    the tag part-->
+                            <div class="right aligned five wide column">
+                                <a href="#" target="_blank" class="ui teal basic label" th:text="${blog.type.type}">type</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--                            images part-->
+                    <div class="right aligned five wide column">
+                        <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank">
+                            <img src="https://unsplash.it/800/450?image=1005" th:src="@{${blog.coverUrl}}" alt="" class="ui rounded image">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--                the third segment begin-->
+        <!--                this segment contains the button which could turn pages-->
+        <div class="ui bottom attached segment" th:if="${page.totalPages}>1">
+            <div class="ui middle aligned two column grid">
+                <div class="column">
+                    <a href="#" th:href="@{/(page=${page.number}-1)}" th:unless="${page.first}" class="ui linkedin mini button">上一页</a>
+                </div>
+                <div class="ui right aligned column">
+                    <a href="#" th:href="@{/(page=${page.number}+1)}" th:unless="${page.first}" class="ui linkedin mini button">下一页</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<!--bottom elements-->
+<footer th:replace="_frags :: foot" class="ui inverted vertical segment interval-tb-add">
+    <div class="ui center aligned container">
+        <div class="ui inverted divided stackable grid">
+            <div class="three wide column">
+                <img src="../static/images/profile.PNG" alt="My Profile" class="round_icon" style="width: 100px;height: 100px" th:src="@{/images/profile.PNG}">
+            </div>
+            <div class="three wide column">
+                <h4 class="ui inverted header">最新博客</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">1</a>
+                    <a href="#" class="item">2</a>
+                    <a href="#" class="item">3</a>
+                </div>
+            </div>
+            <div class="three wide column">
+                <div class="ui inverted link list">
+                    <h4 class="ui inverted header">代办事项</h4>
+                    <a href="#" class="item">1</a>
+                    <a href="#" class="item">2</a>
+                    <a href="#" class="item">3</a>
+                </div>
+            </div>
+            <div class="seven wide column"></div>
+        </div>
+        <div class="ui inverted section divider"></div>
+        <p class="my-text-interval-small my-alpha">Copyright©2021 Blog of XI BI</p>
+    </div>
+
+</footer>
+
+<!--/*/<th:block th:replace="_frags :: scripts">/*/-->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+<!--/*/</th:block>/*/-->
+
+<script>
+    $('.menu.toggle').click(function (){
+        $('.m-item').toggleClass('my-mobile-hide');
+    });
+</script>
+</body>
+</html>

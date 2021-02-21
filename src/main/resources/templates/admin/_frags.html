@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+
+<head th:fragment="head(title)">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:replace="${title}">博客</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <!--    use the typo.css from https://github.com/sofish/typo.css-->
+    <link rel="stylesheet" href="../static/css/typo.css" th:href="@{/css/typo.css}">
+    <!--    use the animation from https://github.com/animate-css/animate.css-->
+    <link rel="stylesheet" href="../static/css/animate.css" th:href="@{/css/animate.css}">
+    <!--    use the ligting code css from https://github.com/PrismJS/prism-->
+    <link rel="stylesheet" href="../static/lib/prism/prism.css" th:href="@{/lib/prism/prism.css}">
+    <link rel="stylesheet" href="../../static/css/style.css" th:href="@{/css/style.css}">
+    <link rel="stylesheet" href="../../static/lib/mdeditor/css/editormd.min.css" th:href="@{/lib/mdeditor/css/editormd.min.css}">
+</head>
+
+<body>
+    <nav th:fragment="menu(n)" class="ui inverted attached segment interval-tb-reduce my-shadow">
+        <div class="ui container">
+            <div class="ui inverted stackable menu">
+                <h2 class="ui teal header item">博客管理</h2>
+                <a href="#" th:href="@{/admin/blogs}" class="m-item item my-mobile-hide" th:classappend="${n==1}?'active'"><i class="home icon"></i>博客</a>
+                <a href="#" th:href="@{/admin/types}" class="m-item item my-mobile-hide" th:classappend="${n==2}?'active'"><i class="idea icon"></i>分类</a>
+                <a href="#" th:href="@{/admin/tag}" class="m-item item my-mobile-hide" th:classappend="${n==3}?'active'"><i class="tags icon"></i>标签</a>
+                <!--account part -->
+                <div class="m-item my-mobile-hide right menu">
+                    <div class="ui dropdown item">
+                        <div class="text">
+                            <img src="../../static/images/profile.PNG" alt="" class="ui avatar image" th:src="@{/images/profile.PNG}">
+                        </div>
+                        <div class="menu">
+                            <a href="#" th:href="@{/admin/logout}" class="item">注销</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="ui menu toggle black icon button my-ps-topright my-mobile-show">
+            <i class="sidebar icon"></i>
+        </a>
+    </nav>
+
+
+    <!--footer template-->
+    <footer th:fragment="foot" class="ui inverted vertical segment interval-tb-add">
+        <div class="ui center aligned container">
+            <div class="ui inverted divided stackable grid">
+                <div class="three wide column">
+                    <a href="#" target="_blank" th:href="@{/myprofile}">
+                        <img src="../static/images/profile.PNG" alt="My Profile" class="ui avatar image center aligned middle aligned" style="width: 100px;height: 100px" th:src="@{/images/profile.PNG}">
+                    </a>
+                </div>
+                <div class="three wide column">
+                    <h4 class="ui inverted header">最新博客</h4>
+                    <div id="newest-blog"></div>
+                    <div class="ui inverted link list" th:fragment="newestBlog">
+                        <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="item" th:each="blog : ${newblogs}" th:text="${blog.title}">1</a>
+                    </div>
+                </div>
+                <div class="three wide column">
+                    <h4 class="ui inverted header">联系我</h4>
+                    <div class="ui inverted link list">
+                        <a href="#" class="item" th:text="#{index.email}">Email: bxbc0912@gmail.com</a>
+                        <a href="#" class="item" th:text="#{index.qqcount}">QQ: 542534206</a>
+                    </div>
+                </div>
+                <div class="seven wide column">
+                    <h4 class="ui inverted header">BC的blog</h4>
+                    <div class="ui inverted link list">
+                        <p class="item">这是我的博客，记录、分享一些学习感悟和生活随笔</p>
+                    </div>
+                </div>
+            </div>
+            <div class="ui inverted section divider"></div>
+            <p class="my-text-interval-small my-alpha">Copyright©2021 Blog of XI BI</p>
+        </div>
+
+    </footer>
+
+
+<!--script template-->
+<th:block th:fragment="scripts">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <script src="../static/lib/prism/prism.js" th:src="@{/lib/prism/prism.js}"></script>
+    <script src="../static/lib/qrcode/qrcode.min.js" th:src="@{/lib/qrcode/qrcode.min.js}"></script>
+    <script>
+        $('.menu.toggle').click(function (){
+            $('.m-item').toggleClass('my-mobile-hide');
+        });
+
+        $('.ui.dropdown').dropdown();
+        $('#newest-blog').load(/*[[@{/admin/footer/newestblog}]]*/"/admin/footer/newestblog");
+    </script>
+</th:block>
+
+</body>
+</html>

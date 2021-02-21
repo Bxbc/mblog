@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://database-1.c0ny6qzu64ar.ap-northeast-1.rds.amazonaws.com:3306/mblog?user=admin&password=bc123456
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+
+
+logging:
+  level:
+    root: info
+    me.bxbc: warn
+  logback:
+    rollingpolicy:
+      max-history: 7
+      max-file-size: 10MB
+  file:
+    name: log/mlog-pro.log
+
